@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>管理员页面</title>
+    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2">
+        <a class="a_color" href="film_management">影片管理</a>
+        <a class="a_color" href="controller_management">管理员管理</a>
+        <a class="a_color" href="studio_management">放映厅管理</a>
+        <a class="a_color" href="user_order">用户订单</a>
+        <a class="a_color" href="session_management">场次安排</a>
+    </div>
+    <div class="col-md-8 col-md-push-1" style="margin-top: 30px">
+        <div class="row">
+            <div class="col-md-push-2">
+                搜索
+                <input type="text" name="用户名">
+                <input type="submit" value="提交">
+            </div>
+            <div>
+                上映时间
+                <a href="#">正在上映</a>
+                <a href="#">即将上映</a>
+            </div>
+            <div>
+                分类
+                {% for i in classify %}
+                    <a href="#">{{ i.name }}</a>
+                {% endfor %}
+            </div>
+            <div class="col-md-8">
+                <h4>电影列表</h4>
+            </div>
+            <div class="col-md-2">
+                <a href="film_create">
+                    <button class="btn-success">新建</button>
+                </a>
+            </div>
+            <div class="col-md-8">
+                <table align="center" width="800px" height="120px">
+                    <thead>
+                    <tr>
+                        <th>电影名</th>
+                        <th>导演</th>
+                        <th>演员</th>
+                        <th>票价</th>
+                        <th>分类</th>
+                        <th>分数</th>
+                        <th>时长</th>
+                        <th>上映时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <hr />
+                    <tbody>
+                    {% for i in films %}
+                        <tr>
+                            <th>{{ i.name }}</th>
+                            <th>{{ i.director }}</th>
+                            <th>{{ i.actor }}</th>
+                            <th>{{ i.value }}</th>
+                            <th>{{ i.classify }}</th>
+                            <th>记得算</th>
+                            <th>{{ i.movie_runtime }}</th>
+                            <th>{{ i.online_time }}</th>
+                            <th>
+                                <form method="post">
+                                    <input type="hidden" name="id" value={{ i.id }}>
+                                    <input type="submit" value="删除"/>
+                                </form>
+                                <form method=""></form>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

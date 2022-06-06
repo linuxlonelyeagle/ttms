@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>管理员管理界面</title>
+    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2">
+        <a class="a_color" href="film_management">影片管理</a>
+        <a class="a_color" href="controller_management">管理员管理</a>
+        <a class="a_color" href="studio_management">放映厅管理</a>
+        <a class="a_color" href="user_order">用户订单</a>
+        <a class="a_color" href="session_management">场次安排</a>
+    </div>
+    <div class="col-md-10">
+        <div class="col-md-2">
+            <h3>管理员列表</h3>
+        </div>
+        <div class="col-md-2 col-md-push-7">
+            <a href="controller_create">
+                <button class="btn-success" style="margin-top: 20px">新建</button>
+            </a>
+        </div>
+        <div class="row">
+            <table align="center" width="800px" height="120px">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>用户名</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in users %}
+                    <tr>
+                        <th>{{ i.id }}</th>
+                        <th>{{ i.username }}</th>
+                        <th>
+                            <form method="post">
+                                <input type="hidden" name="id" value={{ i.id }}>
+                                <input type="submit" value="删除" class="btn-danger"/>
+                            </form>
+                            <form method=""></form>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

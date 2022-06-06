@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>放映厅</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2">
+        <a class="a_color" href="film_management">影片管理</a>
+        <a class="a_color" href="controller_management">管理员管理</a>
+        <a class="a_color" href="studio_management">放映厅管理</a>
+        <a class="a_color" href="user_order">用户订单</a>
+        <a class="a_color" href="session_management">场次安排</a>
+    </div>
+    <div class="col-md-8 col-md-push-1" style="margin-top: 30px">
+        <div class="row">
+            <div class="col-md-2">
+                演播厅列表
+            </div>
+            <div class="col-md-2 col-md-push-7">
+                <a href="studio_create">
+                    <button class="btn-success">新建</button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <table align="center" width="800px" height="120px">
+                <thead>
+                <tr>
+                    <th>放映厅</th>
+                    <th>长度</th>
+                    <th>宽度</th>
+                    <th>座位数</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in studios %}
+                    <tr>
+                        <th>{{ i.name }}</th>
+                        <th>{{ i.length }}</th>
+                        <th>{{ i.width }}</th>
+                        <th>{{ i.num }}</th>
+                        <th>
+                            <form method="post">
+                                <input type="hidden" name="id" value={{ i.id }}>
+                                <input type="submit" value="删除" class="btn-danger"/>
+                            </form>
+                            <form action="/movie/studio_fix" method="get">
+                                <input type="hidden" name="id" value={{ i.id }}>
+                                <input type="submit" value="修改"  class="btn-info"/>
+                            </form>
+
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

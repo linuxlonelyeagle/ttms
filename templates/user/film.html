@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ film.name }}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/media/{{ film.image }}" class="img-thumbnail">
+                </div>
+                <div class="col-md-8">
+                    <p>电影名称：{{ film.name }}</p>
+                    <p>所属分类：{{ film.classify }}</p>
+                    <p>上映日期:{{ film.onlien_time }}</p>
+                    <p>导演:{{ film.director }}</p>
+                    <p>演员:{{ film.actor }}</p>
+                    <a href="/user/choice_session?id={{ film.id }}">
+                        <button>{{ tip }}</button>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <p class="pager">{{ film.discription }}</p>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

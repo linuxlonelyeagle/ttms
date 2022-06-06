@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="frame" class="col-md-4 text-center col-md-push-4" style="background-color:#3c763d">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="" alt="">
+                </div>
+                <div class="col-md-7">
+                    <h3>欢迎登陆</h3>
+                </div>
+            </div>
+            <div class="row">
+                <form method="post">
+                    <div class="col-md-4">
+                        用户名：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" name="用户名">
+                    </div>
+                    <div class="col-md-4">
+                        密码：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="password" name="密码">
+                    </div>
+                    <div class="col-md-12">
+                        {{ tip }}
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" href="login" value="登录">
+                    </div>
+                </form>
+                <div class="col-md-6">
+                    <a href="register">
+                        <button>注册</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

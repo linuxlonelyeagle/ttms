@@ -1,0 +1,12 @@
+.a_color {
+    color: white;
+    display: block;
+    height: 40px;
+    text-indent: 2em;
+    background-color: #2b669a;
+}
+
+.a_color:hover {
+    background-color: #3c763d;
+}
+

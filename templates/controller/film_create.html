@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>新增影片</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/controller_film_create.css' %}">
+</head>
+<body>
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-2">
+                <p>电影名</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="电影名">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>海报</p>
+            </div>
+            <div class="col-md-6">
+                <input type="file" name="photo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>演员</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="演员">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>导演</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="导演">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>时长</p>
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="时长">分钟
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>单价</p>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="价格">￥
+            </div>
+        </div>
+
+        <div class="row" style="height: 130px;">
+            <div class="col-md-2">
+                <p>影片描述</p>
+            </div>
+            <div class="col-md-4">
+                <textarea rows="2" cols="30"  name="描述"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                分类
+                {% for i in classify %}
+                    {{ i.name }}
+                    <input type="checkbox" name="分类" value={{ i.name }}/>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="创建">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

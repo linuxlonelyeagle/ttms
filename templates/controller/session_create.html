@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>新增影片</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-2">
+                <p>演播厅</p>
+            </div>
+            <div class="col-md-6">
+                <select name="演播厅">
+                    {% for i in studios %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>电影</p>
+            </div>
+            <div class="col-md-6">
+                <select name="电影">
+                    {% for i in films %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <p>上映时间</p>
+            </div>
+            <div class="col-md-2">
+                <select name="年">
+                    {% for i in year %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>年
+            </div>
+            <div class="col-md-2">
+                <select name="月">
+                    {% for i in mon %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>月
+            </div>
+            <div class="col-md-2">
+                <select name="日">
+                    {% for i in day %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>日
+            </div>
+            <div class="col-md-2">
+                <select name="时">
+                    {% for i in hour %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>时
+            </div>
+            <div class="col-md-2">
+                <select name="分">
+                    {% for i in min %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>分
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="创建">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

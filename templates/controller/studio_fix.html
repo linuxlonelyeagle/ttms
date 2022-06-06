@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+{% load static %}
+{% load my_tag %}
+<head>
+    <meta charset="UTF-8">
+    <title>创建演播厅</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/seat.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h3>放映厅信息</h3>
+    </div>
+    <div class="row">
+        <p>放映厅名: {{ name }}</p>
+    </div>
+    <form action="/movie/studio_fix" method="post">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-2 col-md-push-2">
+                    <p>屏幕</p>
+                </div>
+                <div class="col-md-12">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th></th>
+                            {% for i in length %}
+                                <th style="text-align: center">{{ i }}</th>
+                            {% endfor %}
+                        </tr>
+                        </thead>
+                        <tobody>
+                            {% for i in width %}
+                                <tr>
+                                    <th>{{ i }}</th>
+                                    {% for j in length %}
+                                        <th>
+                                            {% if i|to_tuple:j in seats %}
+                                                <input type="checkbox" name="seat" value="{{ i }},{{ j }}"
+                                                       checked="checked">
+                                            {% else %}
+                                                <input type="checkbox" name="seat" value="{{ i }},{{ j }}">
+                                            {% endif %}
+                                        </th>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tobody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <input type="hidden" name="id" value="{{ id }}">
+                <input type="submit" value="确定" class="btn-success btn-lg" style="margin-top: 30px">
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

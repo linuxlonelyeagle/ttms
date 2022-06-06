@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>电影导览</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div>
+            <h3>分类</h3>
+        </div>
+        <div>
+            上映时间
+            <a href="#">正在上映</a>
+            <a href="#">即将上映</a>
+        </div>
+        <div>
+            分类
+            {% for i in classify %}
+                <a href="#">{{ i.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h3>电影列表</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    {% for film in films %}
+                        <div class="col-md-6">
+                            <a href="?id={{ film.id }}">
+                                <div class="thumbnail">
+                                    <img src="/media/{{ film.image }}" alt="">
+                                    <h3>{{ film.name }}</h3>
+                                    <p>{{ film.discription }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

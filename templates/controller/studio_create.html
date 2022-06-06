@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="frame" class="col-md-4 text-center col-md-push-4" style="background-color:#3c763d">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="" alt="">
+                </div>
+                <div class="col-md-9">
+                    <h3>创建放映厅</h3>
+                </div>
+            </div>
+            <div class="row">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            放映厅名称：
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" name="名称">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            长度：
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" name="长度">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            宽度：
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" name="宽度">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" value="提交">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>购票</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div style="background-color: #3c763d">
+    1
+</div>
+<div class="container">
+    <div class="row">
+        <h3>请选择场次</h3>
+    </div>
+    <div class="row">
+        <table align="center" width="800px" height="120px">
+            <thead>
+            <tr>
+                <th>电影名</th>
+                <th>开始时间</th>
+                <th>演播厅</th>
+                <th>分类</th>
+                <th>时长</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <hr/>
+            <tbody>
+            {% for i in session %}
+                <tr>
+                    <th>{{ i.film.name }}</th>
+                    <th>{{ i.begin_time }}</th>
+                    <th>{{ i.studio.name }}</th>
+                    <th>{{ i.film.classify }}</th>
+                    <th>{{ i.film.movie_runtime }}</th>
+                    <th>
+                        <a href="/user/buy?id={{ i.id }}">
+                            <button class="btn-success">确定</button>
+                        </a>
+                    </th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

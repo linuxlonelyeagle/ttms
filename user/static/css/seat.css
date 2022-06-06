@@ -1,0 +1,35 @@
+th input{
+    width: 30px;
+	height: 30px;
+	background: #3c763d;
+	border-radius: 50px;
+	position: relative;
+    display: block;
+}
+
+th input:before{
+    color: #3c763d;
+}
+
+th input:hover{
+    color: #2b669a;
+}
+
+label{
+    display: block;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 9px;
+	z-index: 1;
+	left: 12px;
+	background: #ddd;
+}

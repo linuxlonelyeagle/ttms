@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>场次管理</title>
+    <link rel="stylesheet" href="{% static 'css/navigation_bar.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2">
+        <a class="a_color" href="film_management">影片管理</a>
+        <a class="a_color" href="controller_management">管理员管理</a>
+        <a class="a_color" href="studio_management">放映厅管理</a>
+        <a class="a_color" href="user_order">用户订单</a>
+        <a class="a_color" href="session_management">场次安排</a>
+    </div>
+    <div class="col-md-8 col-md-push-1" style="margin-top: 30px">
+        <div class="row">
+            <div class="col-md-push-2" style="margin-bottom: 20px">
+                <p>电影</p>
+                <input type="text" name="用户名">
+                <input type="submit" value="搜索">
+            </div>
+            <div>
+                <p>上映时间</p>
+                <a href="#">正在上映</a>
+                <a href="#">即将上映</a>
+            </div>
+            <div class="col-md-8">
+                <h4>场次列表</h4>
+            </div>
+            <div class="col-md-2">
+                <a href="session_create">
+                    <button class="btn-success">新建</button>
+                </a>
+            </div>
+            <div class="col-md-8">
+                <table align="center" width="800px" height="120px">
+                    <thead>
+                    <tr>
+                        <th>电影名</th>
+                        <th>开始时间</th>
+                        <th>演播厅</th>
+                        <th>分类</th>
+                        <th>时长</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <hr/>
+                    <tbody>
+                    {% for i in session %}
+                        <tr>
+                            <th>{{ i.film.name }}</th>
+                            <th>{{ i.begin_time }}</th>
+                            <th>{{ i.studio.name }}</th>
+                            <th>{{ i.film.classify }}</th>
+                            <th>{{ i.film.movie_runtime}}</th>
+                            <th>
+                                <form method="post">
+                                    <input type="hidden" name="id" value={{ i.id }}>
+                                    <input type="submit" class="btn-danger" value="删除"/>
+                                </form>
+                                <form method=""></form>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
